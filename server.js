@@ -209,6 +209,7 @@ app.post("/api/cadastro", async (req, res) => {
 app.post("/api/recuperacao", async (req, res) => {
 
     try {
+        console.log("RECUPERAÇÃO INICIADA!");
 
         const { email } = req.body;
 
@@ -243,6 +244,7 @@ app.post("/api/recuperacao", async (req, res) => {
         usuario.expiracaoCodigo = expiracao;
 
         await usuario.save();
+        console.log("TENTANDO ENVIAR E-MAIL PARA:", usuario.email);
 
         // Envia o código por e-mail
         await transporter.sendMail({
