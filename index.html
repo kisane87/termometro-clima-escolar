@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta charset="UTF-8">
+
+    <meta
+        name="description"
+        content="Termômetro do Clima Escolar"
+    >
+    <title>Termômetro do Clima Escolar</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- =====================================================
+         FUNDO
+    ====================================================== -->
+
+    <div class="fundo-overlay"></div>
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+    ====================================================== -->
+
+    <div class="site">
+
+        <!-- =================================================
+             CABEÇALHO
+        ================================================== -->
+
+        <header class="cabecalho">
+
+            <h1 class="titulo-principal">
+                <span>TERMÔMETRO</span>
+                <strong>DO CLIMA ESCOLAR</strong>
+            </h1>
+
+        </header>
+
+
+        <!-- =================================================
+             LOGIN
+        ================================================== -->
+
+        <main
+            class="container-plataforma tela-login"
+            id="telaLogin"
+        >
+
+            <div class="conteudo-card">
+
+                <h2 class="titulo-sessao">
+                    Acesse a sua conta institucional
+                </h2>
+
+
+                <form id="formLogin">
+                    <!-- Turma -->
+
+<div class="grupo-input">
+
+    <label for="turmaLogin">
+        Selecione sua turma
+    </label>
+
+    <select
+        id="turmaLogin"
+        name="turmaLogin"
+    
+    >
+
+        <option value="" disabled selected>
+            Selecione sua turma
+        </option>
+
+        <optgroup label="1º Ano">
+            <option value="1A">1º A</option>
+            <option value="1B">1º B</option>
+            <option value="1C">1º C</option>
+        </optgroup>
+
+        <optgroup label="2º Ano">
+            <option value="2A">2º A</option>
+            <option value="2B">2º B</option>
+            <option value="2C">2º C</option>
+        </optgroup>
+
+        <optgroup label="3º Ano">
+            <option value="3A">3º A</option>
+            <option value="3B">3º B</option>
+            <option value="3C">3º C</option>
+        </optgroup>
+
+    </select>
+
+</div>
+                    
+
+                    <!-- Usuário -->
+
+                    <div class="grupo-input">
+
+                        <label for="usuario">
+                            Usuário ou RM
+                        </label>
+
+                        <input
+                            type="text"
+                            id="usuario"
+                            name="usuario"
+                            placeholder="Digite seu usuário"
+                            autocomplete="username"
+                            required
+                        >
+
+                    </div>
+                    
+
+
+                    <!-- Senha -->
+
+                    <div class="grupo-input">
+
+                        <label for="senha">
+                            Senha de Acesso
+                        </label>
+
+                        <input
+                            type="password"
+                            id="senha"
+                            name="senha"
+                            placeholder="Digite sua senha"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Mensagem de erro -->
+
+                    <div
+                        class="mensagem-erro escondido"
+                        id="msgErroLogin"
+                        role="alert"
+                    >
+                        ❌ Usuário ou senha incorretos.
+                        Tente novamente!
+                    </div>
+
+
+                    <!-- Botão -->
+                       <button
+    type="submit"
+    class="btn-principal"
+>
+    Entrar no Portal
+</button>
+
+<div class="link-alternativo">
+
+    <a
+        href="#"
+        id="linkEsqueciSenha"
+    >
+        Esqueci minha senha?
+    </a>
+
+</div>
+
+</form>
+
+
+                <!-- Cadastro -->
+
+                <div class="link-alternativo">
+
+                    <span>
+                        Novo por aqui?
+                    </span>
+
+                    <a
+                        href="#"
+                        id="linkIrParaCadastro"
+                    >
+                        Cadastre-se agora.
+                    </a>
+
+                </div>
+
+            </div>
+
+        </main>
+
+
+        <!-- =================================================
+             CADASTRO
+        ================================================== -->
+
+        <main
+            class="container-plataforma tela-cadastro escondido"
+            id="telaCadastro"
+        >
+
+            <div class="conteudo-card">
+
+                <h2 class="titulo-sessao">
+                    Criar Conta Institucional
+                </h2>
+
+
+                <form id="formCadastro">
+
+                    <!-- Nome -->
+
+                    <div class="grupo-input">
+
+                        <label for="nomeCadastro">
+                            Nome Completo
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nomeCadastro"
+                            name="nomeCadastro"
+                            placeholder="Ex: Guilherme"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+                    <!-- Turma -->
+
+<div class="grupo-input">
+
+    <label for="turmaCadastro">
+        Selecione sua turma
+    </label>
+
+    <select
+        id="turmaCadastro"
+        name="turmaCadastro"
+        required
+    >
+
+        <option value="" disabled selected>
+            Selecione sua turma
+        </option>
+
+        <optgroup label="1º Ano">
+            <option value="1A">1º A</option>
+            <option value="1B">1º B</option>
+            <option value="1C">1º C</option>
+        </optgroup>
+
+        <optgroup label="2º Ano">
+            <option value="2A">2º A</option>
+            <option value="2B">2º B</option>
+            <option value="2C">2º C</option>
+        </optgroup>
+
+        <optgroup label="3º Ano">
+            <option value="3A">3º A</option>
+            <option value="3B">3º B</option>
+            <option value="3C">3º C</option>
+        </optgroup>
+
+    </select>
+
+</div>
+
+
+                    <!-- RM -->
+
+                    <div class="grupo-input">
+
+                        <label for="rmCadastro">
+                            RM (Registro de Matrícula)
+                        </label>
+
+                        <input
+                            type="text"
+                            id="rmCadastro"
+                            name="rmCadastro"
+                            placeholder="Ex: 12345"
+                            autocomplete="off"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Email -->
+
+                    <div class="grupo-input">
+
+                        <label for="emailCadastro">
+                            E-mail Institucional
+                        </label>
+
+                        <input
+                            type="email"
+                            id="emailCadastro"
+                            name="emailCadastro"
+                            placeholder="aluno@escola.com"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Senha -->
+
+                    <div class="grupo-input">
+
+                        <label for="senhaCadastro">
+                            Crie uma Senha
+                        </label>
+
+                        <input
+                            type="password"
+                            id="senhaCadastro"
+                            name="senhaCadastro"
+                            placeholder="Mínimo 6 caracteres"
+                            minlength="6"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Botão -->
+
+                    <button
+                        type="submit"
+                        class="btn-principal"
+                    >
+                        Concluir Cadastro
+                    </button>
+
+                </form>
+
+
+                <!-- Voltar para login -->
+
+                <div class="link-alternativo">
+
+                    <span>
+                        Já tem uma conta?
+                    </span>
+
+                    <a
+                        href="#"
+                        id="linkIrParaLogin"
+                    >
+                        Faça login.
+                    </a>
+
+                </div>
+
+            </div>
+
+        </main>
+            
+
+
+       <!-- =================================================
+     RECUPERAÇÃO DE SENHA
+================================================== -->
+
+<main
+    class="container-plataforma tela-recuperacao escondido"
+    id="telaRecuperacao"
+>
+
+    <div class="conteudo-card">
+
+        <h2 class="titulo-sessao">
+            Recuperar Senha
+        </h2>
+
+        <!-- ETAPA 1: E-MAIL -->
+
+        <div id="etapaEmailRecuperacao">
+
+            <p class="descricao-secao">
+                Digite o e-mail cadastrado para receber
+                um código de recuperação.
+            </p>
+
+            <form id="formRecuperacao">
+
+                <div class="grupo-input">
+
+                    <label for="emailRecuperacao">
+                        E-mail cadastrado
+                    </label>
+
+                    <input
+                        type="email"
+                        id="emailRecuperacao"
+                        name="emailRecuperacao"
+                        placeholder="Digite seu e-mail"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn-principal"
+                >
+                    Enviar código de recuperação
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- ETAPA 2: CÓDIGO -->
+
+        <div
+            id="etapaCodigoRecuperacao"
+            class="escondido"
+        >
+
+            <p class="descricao-secao">
+                Enviamos um código de 6 dígitos
+                para o seu e-mail.
+            </p>
+
+            <form id="formCodigoRecuperacao">
+
+                <div class="grupo-input">
+
+                    <label for="codigoRecuperacao">
+                        Código de recuperação
+                    </label>
+
+                    <input
+                        type="text"
+                        id="codigoRecuperacao"
+                        name="codigoRecuperacao"
+                        placeholder="Digite o código"
+                        maxlength="6"
+                        inputmode="numeric"
+                        autocomplete="one-time-code"
+                        required
+                    >
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn-principal"
+                >
+                    Verificar código
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- ETAPA 3: NOVA SENHA -->
+
+        <div
+            id="etapaNovaSenha"
+            class="escondido"
+        >
+
+            <p class="descricao-secao">
+                Código confirmado! Agora crie sua
+                nova senha.
+            </p>
+
+            <form id="formNovaSenha">
+
+                <div class="grupo-input">
+
+                    <label for="novaSenha">
+                        Nova senha
+                    </label>
+
+                    <input
+                        type="password"
+                        id="novaSenha"
+                        name="novaSenha"
+                        placeholder="Mínimo 6 caracteres"
+                        minlength="6"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="grupo-input">
+
+                    <label for="confirmarNovaSenha">
+                        Confirmar nova senha
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmarNovaSenha"
+                        name="confirmarNovaSenha"
+                        placeholder="Digite novamente a senha"
+                        minlength="6"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn-principal"
+                >
+                    Redefinir senha
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- VOLTAR -->
+
+        <div class="link-alternativo">
+
+            <a
+                href="#"
+                id="linkVoltarLoginRecuperacao"
+            >
+                Voltar para o login
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+                <!-- =================================================
+             PAINEL DO ALUNO
+        ================================================== -->
+
+        <section
+            class="container-plataforma tela-aluno escondido"
+            id="telaAluno"
+        
+        >
+
+        <div class="topo-dashboard">
+
+                <div>
+                    <span class="badge-dashboard">
+                        ÁREA DO ESTUDANTE
+                    </span>
+
+                    <h2 class="titulo-dashboard">
+                        Painel do Estudante
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <p class="sub-anonimo">
+                🔒 Sua resposta é 100% anônima e
+                desvinculada da sua identidade.
+            </p>
+
+
+            <!-- Opções de humor -->
+
+            <div class="opcoes-humor">
+
+                <button
+                    type="button"
+                    class="btn-humor"
+                    data-humor="produtivo"
+                >
+
+                    <span class="icone-humor">
+                        🟢
+                    </span>
+
+                    <span>
+
+                        <strong>
+                            Super Produtivo
+                        </strong>
+
+                        <small>
+                            Semana leve, foco total e
+                            energia em alta.
+                        </small>
+
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn-humor"
+                    data-humor="tranquilo"
+                >
+
+                    <span class="icone-humor">
+                        🔵
+                    </span>
+
+                    <span>
+
+                        <strong>
+                            Tranquilo
+                        </strong>
+
+                        <small>
+                            Ritmo estável, sem grandes
+                            dificuldades.
+                        </small>
+
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn-humor"
+                    data-humor="pouco"
+                >
+
+                    <span class="icone-humor">
+                        🟡
+                    </span>
+
+                    <span>
+
+                        <strong>
+                            Parcialmente
+                        </strong>
+
+                        <small>
+                            Semana pesada, cansaço
+                            acumulado.
+                        </small>
+
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn-humor"
+                    data-humor="muito"
+                >
+
+                    <span class="icone-humor">
+                        🔴
+                    </span>
+
+                    <span>
+
+                        <strong>
+                            Sobrecarregado
+                        </strong>
+
+                        <small>
+                            Estresse elevado, risco
+                            de burnout.
+                        </small>
+
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- Desabafo -->
+
+            <div class="campo-area">
+
+                <label for="txtDesabafo">
+                    Quer deixar um comentário?
+                </label>
+
+                <textarea
+                    class="campo-desabafo"
+                    id="txtDesabafo"
+                    placeholder="Quer desabafar ou deixar uma sugestão? (Opcional e anônimo)"
+                    maxlength="500"
+                ></textarea>
+
+            </div>
+
+
+            <!-- Enviar -->
+
+            <button
+    type="button"
+    class="btn-proxima-avaliacao"
+    id="btnProximaAvaliacao"
+>
+    →
+</button>
+
+
+            <!-- Sucesso -->
+
+            <div
+                class="mensagem-sucesso escondido"
+                id="msgSucesso"
+                role="status"
+            >
+                ✓ Obrigado! Sua voz ajuda a coordenação
+                a agir com empatia e precisão.
+            </div>
+
+        </section>
+                <!-- =================================================
+             AVALIAÇÃO DAS MATÉRIAS
+        ================================================== -->
+
+        <section
+            class="container-plataforma tela-avaliacoes escondido"
+            id="telaAvaliacoes"
+        >
+
+            <div class="topo-dashboard">
+
+                <div>
+
+                    <span class="badge-dashboard">
+                        AVALIAÇÃO SEMANAL
+                    </span>
+
+                    <h2 class="titulo-dashboard">
+                        Avalie suas matérias
+                    </h2>
+
+                    <p class="sub-anonimo">
+                        Avalie como você está se sentindo
+                        em cada matéria nesta semana.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="listaMaterias"></div>
+
+
+            <button
+                type="button"
+                class="btn-principal"
+                id="btnEnviarVotosMaterias"
+            >
+                Enviar Registro Semanal
+            </button>
+            <p id="msgSucessoMaterias" class="msg-sucesso">
+    ✓ Registro enviado com sucesso!
+</p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAINEL DA COORDENAÇÃO
+        ================================================== -->
+
+        <section
+            class="container-plataforma tela-coordenacao escondido"
+            id="telaCoordenacao"
+        >
+
+            <!-- Topo -->
+
+            <div class="topo-dashboard">
+
+                <div>
+
+                    <span class="badge-dashboard">
+                        ÁREA ADMINISTRATIVA
+                    </span>
+
+                    <h2 class="titulo-dashboard">
+                        Painel de Controle Estratégico
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="btn-sair"
+                    id="btnLimparDados"
+                >
+                    Limpar Votos
+                </button>
+
+            </div>
+
+
+            <!-- Indicadores -->
+
+            <div class="cards-indicadores">
+
+                <div class="card-ind">
+
+                    <div class="card-ind-icone roxo">
+                        📊
+                    </div>
+
+                    <div>
+
+                        <h5>
+                            Total de Votos
+                        </h5>
+
+                        <p
+                            class="numero-ind"
+                            id="indTotalVotos"
+                        >
+                            0
+                        </p>
+
+                        <span>
+                            Nesta semana
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card-ind alerta-ativo">
+
+                    <div class="card-ind-icone vermelho">
+                        ⚠️
+                    </div>
+
+                    <div>
+
+                        <h5>
+                            Alerta Crítico
+                        </h5>
+
+                        <p
+                            class="numero-ind"
+                            id="indAlertaCritico"
+                        >
+                            0
+                        </p>
+
+                        <span>
+                            Alunos sobrecarregados
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Gráfico -->
+
+<div class="secao-grafico">
+
+    <div class="cabecalho-secao">
+
+        <div>
+
+            <label for="turmaCoordenacao">
+                Selecionar turma
+            </label>
+
+            <select
+                id="turmaCoordenacao"
+                name="turmaCoordenacao"
+            >
+
+                <option value="" disabled selected>
+                    Selecione uma turma
+                </option>
+
+                <optgroup label="1º Ano">
+                    <option value="1A">1º A</option>
+                    <option value="1B">1º B</option>
+                    <option value="1C">1º C</option>
+                </optgroup>
+
+                <optgroup label="2º Ano">
+                    <option value="2A">2º A</option>
+                    <option value="2B">2º B</option>
+                    <option value="2C">2º C</option>
+                </optgroup>
+
+                <optgroup label="3º Ano">
+                    <option value="3A">3º A</option>
+                    <option value="3B">3º B</option>
+                    <option value="3C">3º C</option>
+                </optgroup>
+
+            </select>
+
+            <h3 class="subtitulo-dashboard">
+    Clima da Turma
+    <span id="nomeTurmaSelecionada"></span>
+</h3>
+
+            <p class="descricao-secao">
+                Distribuição dos registros
+                realizados pelos estudantes.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="wrapper-grafico-3ds">
+
+                    <!-- Eixo Y -->
+
+                    <div class="eixo-y">
+
+                        <span>21</span>
+                        <span>18</span>
+                        <span>15</span>
+                        <span>12</span>
+                        <span>9</span>
+                        <span>6</span>
+                        <span>3</span>
+                        <span>0</span>
+
+                    </div>
+
+
+                    <!-- Área -->
+
+                    <div class="area-grafico">
+
+                        <!-- Grade -->
+
+                        <div class="grade-fundo">
+
+                            <div class="linha-grade"></div>
+                            <div class="linha-grade"></div>
+                            <div class="linha-grade"></div>
+                            <div class="linha-grade"></div>
+                            <div class="linha-grade"></div>
+                            <div class="linha-grade"></div>
+                            <div class="linha-grade"></div>
+                            <div class="linha-grade"></div>
+
+                        </div>
+
+
+                        <!-- Colunas -->
+
+                        <div class="container-colunas">
+
+
+                            <!-- Produtivo -->
+
+                            <div class="item-coluna">
+
+                                <div
+                                    class="barra cor-produtivo"
+                                    id="barraProdutivo"
+                                    style="height: 0%;"
+                                >
+
+                                    <span
+                                        class="valor-topo"
+                                        id="valProdutivo"
+                                    >
+                                        0
+                                    </span>
+
+                                </div>
+
+                                <span class="legenda-barra">
+                                    Produtivo
+                                </span>
+
+                            </div>
+
+
+                            <!-- Tranquilo -->
+
+                            <div class="item-coluna">
+
+                                <div
+                                    class="barra cor-tranquilo"
+                                    id="barraTranquilo"
+                                    style="height: 0%;"
+                                >
+
+                                    <span
+                                        class="valor-topo"
+                                        id="valTranquilo"
+                                    >
+                                        0
+                                    </span>
+
+                                </div>
+
+                                <span class="legenda-barra">
+                                    Tranquilo
+                                </span>
+
+                            </div>
+
+
+                            <!-- Parcialmente -->
+
+                            <div class="item-coluna">
+
+                                <div
+                                    class="barra cor-pouco"
+                                    id="barraPouco"
+                                    style="height: 0%;"
+                                >
+
+                                    <span
+                                        class="valor-topo"
+                                        id="valPouco"
+                                    >
+                                        0
+                                    </span>
+
+                                </div>
+
+                                <span class="legenda-barra">
+                                    Parcialmente
+                                </span>
+
+                            </div>
+
+
+                            <!-- Sobrecarregado -->
+
+                            <div class="item-coluna">
+
+                                <div
+                                    class="barra cor-muito"
+                                    id="barraMuito"
+                                    style="height: 0%;"
+                                >
+
+                                    <span
+                                        class="valor-topo"
+                                        id="valMuito"
+                                    >
+                                        0
+                                    </span>
+
+                                </div>
+
+                                <span class="legenda-barra">
+                                    Sobrecarregado
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+                        <!-- =================================================
+                 AVALIAÇÃO POR MATÉRIA
+            ================================================== -->
+
+            <div class="secao-materias">
+
+                <div class="cabecalho-secao">
+
+                    <span class="tag-secao">
+                        CLIMA POR MATÉRIA
+                    </span>
+
+                    <h3 class="subtitulo-dashboard">
+                        Avaliação das Matérias
+                    </h3>
+
+                    <p class="descricao-secao">
+                        Distribuição das avaliações realizadas
+                        pelos estudantes em cada matéria.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="grid-materias-dashboard"
+                    id="gridMateriasDashboard"
+                >
+
+                    <p class="sem-dados">
+                        Nenhuma avaliação por matéria
+                        registrada até o momento.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Mural -->
+
+            <div class="secao-desabafos">
+
+                <div class="cabecalho-secao">
+
+                    <span class="tag-secao">
+                        FEEDBACK ANÔNIMO
+                    </span>
+
+                    <h3 class="subtitulo-dashboard">
+                        Mural de Desabafos Recentes
+                    </h3>
+
+                    <p class="descricao-secao">
+                        Comentários enviados anonimamente
+                        pelos estudantes.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="feed-desabafos"
+                    id="feedDesabafos"
+                >
+
+                    <p class="sem-dados">
+                        Nenhum comentário ou desabafo
+                        registrado até o momento.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
