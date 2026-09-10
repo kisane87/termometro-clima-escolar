@@ -242,7 +242,7 @@ app.post("/api/recuperacao", async (req, res) => {
 
         // Envia o código por e-mail
         await resend.emails.send({
-    from: "onboarding@resend.dev",
+    from: "Termômetro do Clima Escolar <onboarding@resend.dev>",
     to: usuario.email,
     subject: "Código de recuperação - Termômetro do Clima Escolar",
     text: `Seu código de recuperação é: ${codigo}
