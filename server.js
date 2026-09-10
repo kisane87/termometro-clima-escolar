@@ -465,11 +465,11 @@ app.post("/api/login", async (req, res) => {
 }
 
         const usuarioEncontrado = await User.findOne({
-            $or: [
-                { nome: usuario },
-                { rm: usuario }
-            ]
-        });
+    $or: [
+        { nome: { $regex: `^${usuario}$`, $options: "i" } },
+        { rm: { $regex: `^${usuario}$`, $options: "i" } }
+    ]
+});
 
         if (!usuarioEncontrado) {
             return res.status(401).json({
