@@ -3,7 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 const { GoogleGenAI } = require("@google/genai");
 
 const User = require("./User");
@@ -13,16 +13,7 @@ const app = express();
 const gemini = new GoogleGenAI({
     apiKey: process.env.GEMINI_API_KEY
 });
-const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false,
-    requireTLS: true,
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-    }
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const port = process.env.PORT || 3000;
 
@@ -250,16 +241,16 @@ app.post("/api/recuperacao", async (req, res) => {
         console.log("TENTANDO ENVIAR E-MAIL PARA:", usuario.email);
 
         // Envia o código por e-mail
-        await transporter.sendMail({
-            from: process.env.EMAIL_USER,
-            to: usuario.email,
-            subject: "Código de recuperação - Termômetro do Clima Escolar",
-            text: `Seu código de recuperação é: ${codigo}
+        await resend.emails.send({
+    from: "onboarding@resend.dev",
+    to: usuario.email,
+    subject: "Código de recuperação - Termômetro do Clima Escolar",
+    text: `Seu código de recuperação é: ${codigo}
 
 Esse código é válido por 10 minutos.
 
 Se você não solicitou a recuperação da senha, ignore este e-mail.`
-        });
+});
 
         console.log(
             "Código de recuperação enviado para:",
