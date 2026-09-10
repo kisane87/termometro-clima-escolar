@@ -21,7 +21,7 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 console.log("ESTE É O SERVER.JS CERTO");
 
@@ -527,8 +527,8 @@ app.post("/api/login", async (req, res) => {
 
 app.use(express.static("."));
 
-app.listen(port, () => {
-    console.log(`Site rodando em http://localhost:${port}`);
+app.listen(port, "0.0.0.0", () => {
+    console.log(`Site rodando na porta ${port}`);
 });
 // =========================
 // CHAT COM IA
