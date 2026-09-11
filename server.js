@@ -119,6 +119,66 @@ app.post("/api/votos", async (req, res) => {
     }
 });
 // =========================
+// BUSCAR VOTOS
+// =========================
+
+app.get("/api/votos", async (req, res) => {
+
+    try {
+
+        const votos = await Voto.find().sort({
+            createdAt: -1
+        });
+
+        res.json(votos);
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao buscar votos:",
+            erro
+        );
+
+        res.status(500).json({
+            erro: "Erro interno ao buscar votos."
+        });
+
+    }
+
+});
+
+// =========================
+// LIMPAR VOTOS
+// =========================
+
+app.delete("/api/votos", async (req, res) => {
+
+    try {
+
+        await Voto.deleteMany({});
+
+        await Avaliacao.deleteMany({});
+
+        res.json({
+            mensagem: "Votos apagados com sucesso!"
+        });
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao apagar votos:",
+            erro
+        );
+
+        res.status(500).json({
+            erro: "Erro interno ao apagar votos."
+        });
+
+    }
+
+});
+
+// =========================
 // CADASTRO
 // =========================
 
