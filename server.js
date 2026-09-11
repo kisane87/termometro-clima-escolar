@@ -8,7 +8,7 @@ const { GoogleGenAI } = require("@google/genai");
 
 const User = require("./User");
 const Voto = require("./Voto");
-const Avaliacao = require("./Avaliacao");
+
 
 const app = express();
 const gemini = new GoogleGenAI({
@@ -93,19 +93,6 @@ app.post("/api/votos", async (req, res) => {
         });
 
         await novoVoto.save();
-
-        /* Registro vinculado ao aluno (para o histórico do perfil) */
-        if (rm) {
-            const novaAvaliacao = new Avaliacao({
-                rm,
-                turma,
-                humor,
-                materias: materias || {}
-            });
-
-            await novaAvaliacao.save();
-        }
-
         res.status(201).json({
             mensagem: "Voto salvo com sucesso!"
         });
@@ -156,8 +143,6 @@ app.delete("/api/votos", async (req, res) => {
     try {
 
         await Voto.deleteMany({});
-
-        await Avaliacao.deleteMany({});
 
         res.json({
             mensagem: "Votos apagados com sucesso!"
