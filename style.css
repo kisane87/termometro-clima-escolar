@@ -273,20 +273,13 @@ header h1 span {
 #telaRecuperacao {
     width: min(420px, calc(100% - 2rem));
     max-width: 420px;
-
     position: fixed;
-
-    top: 50%;
+    top: 55%;
     left: 50%;
-
     margin: 0;
-
     transform: translate(-50%, -50%);
-
     opacity: 0;
-
     animation: surgirLogin 0.8s ease forwards;
-
     animation-delay: 0.2s;
 }
 
