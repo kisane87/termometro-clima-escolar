@@ -3136,3 +3136,430 @@ bottom: calc(16px + env(safe-area-inset-bottom));
 
     
 }
+/* =========================================================
+   PERSONALIZAÇÃO DO PERSONAGEM
+   ========================================================= */
+
+#telaPersonalizacao {
+    width: calc(100% - 2rem);
+    max-width: 1000px;
+
+    margin: 120px auto 40px;
+
+    padding: 2.5rem;
+
+    position: relative;
+    z-index: 3;
+
+    background: var(--bg-card);
+
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+
+    box-shadow: var(--sombra);
+
+    overflow: visible;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+#telaPersonalizacao .titulo-sessao {
+    margin-bottom: 2rem;
+
+    color: #ffffff;
+
+    font-size: 1.35rem;
+    font-weight: 600;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   ÁREA PRINCIPAL DO PERSONAGEM
+   ========================================================= */
+
+.area-personagem {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    margin: 0 auto 2rem;
+
+    padding: 2rem;
+
+    min-height: 360px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(130, 87, 229, 0.12),
+            rgba(30, 30, 36, 0.96) 65%
+        );
+
+    border: 1px solid #29292e;
+
+    border-radius: 16px;
+
+    position: relative;
+}
+
+
+/* =========================================================
+   AVATAR / PERSONAGEM
+   ========================================================= */
+
+.avatar-editor {
+    width: 230px;
+    height: 280px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto;
+
+    position: relative;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(130, 87, 229, 0.08),
+            rgba(18, 18, 20, 0.15)
+        );
+
+    box-shadow:
+        0 0 45px rgba(130, 87, 229, 0.12);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   ÁREA DAS OPÇÕES
+   ========================================================= */
+
+.opcoes-personagem {
+    width: 100%;
+
+    margin-top: 1.5rem;
+}
+
+
+/* =========================================================
+   CATEGORIAS
+   ========================================================= */
+
+.categorias-personagem {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 0.8rem;
+
+    width: 100%;
+
+    margin-bottom: 1.5rem;
+}
+
+
+/* =========================================================
+   BOTÕES DAS CATEGORIAS
+   ========================================================= */
+
+.categoria-personagem {
+    min-height: 52px;
+
+    padding: 0.75rem 1rem;
+
+    background: #222228;
+
+    border: 1px solid #3e3e4a;
+
+    border-radius: 10px;
+
+    color: #cfcfd8;
+
+    font-family: inherit;
+
+    font-size: 0.8rem;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.categoria-personagem:hover {
+    background: rgba(130, 87, 229, 0.10);
+
+    border-color: rgba(130, 87, 229, 0.55);
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+}
+
+
+.categoria-personagem.ativa {
+    background:
+        rgba(130, 87, 229, 0.14);
+
+    border-color: var(--roxo-gamma);
+
+    color: #ffffff;
+
+    box-shadow:
+        0 0 18px rgba(130, 87, 229, 0.12);
+}
+
+
+.categoria-personagem:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================================================
+   PAINEL DAS OPÇÕES
+   ========================================================= */
+
+.opcoes-categoria {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 0.8rem;
+
+    width: 100%;
+
+    padding: 1.2rem;
+
+    background: rgba(30, 30, 36, 0.95);
+
+    border: 1px solid #29292e;
+
+    border-radius: 12px;
+}
+
+
+/* =========================================================
+   OPÇÃO INDIVIDUAL
+   ========================================================= */
+
+.opcao-personagem {
+    min-height: 70px;
+
+    padding: 0.8rem;
+
+    background: #222228;
+
+    border: 1px solid #3e3e4a;
+
+    border-radius: 10px;
+
+    color: #d8d8df;
+
+    font-family: inherit;
+
+    font-size: 0.78rem;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.15s ease;
+}
+
+
+.opcao-personagem:hover {
+    background:
+        rgba(130, 87, 229, 0.08);
+
+    border-color:
+        rgba(130, 87, 229, 0.5);
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+}
+
+
+.opcao-personagem.selecionada {
+    background:
+        rgba(130, 87, 229, 0.14);
+
+    border-color:
+        var(--roxo-gamma);
+
+    color: #ffffff;
+
+    box-shadow:
+        0 0 15px rgba(130, 87, 229, 0.12);
+}
+
+
+/* =========================================================
+   BOTÃO SALVAR
+   ========================================================= */
+
+#btnSalvarAvatar {
+    margin-top: 1.5rem;
+}
+
+
+/* =========================================================
+   BOTÃO VOLTAR
+   ========================================================= */
+
+#btnVoltarPersonalizacao {
+    display: block;
+
+    width: 100%;
+
+    margin-top: 1rem;
+
+    padding: 0.8rem;
+
+    background: transparent;
+
+    border: 1px solid #3e3e4a;
+
+    border-radius: 8px;
+
+    color: var(--texto-secundario);
+
+    font-family: inherit;
+
+    font-size: 0.85rem;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+#btnVoltarPersonalizacao:hover {
+    background:
+        rgba(130, 87, 229, 0.08);
+
+    border-color:
+        var(--roxo-gamma);
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   PERSONALIZAÇÃO - TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    #telaPersonalizacao {
+        width: calc(100% - 2rem);
+
+        padding: 1.8rem;
+
+        margin-top: 110px;
+    }
+
+    .categorias-personagem {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .opcoes-categoria {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   PERSONALIZAÇÃO - CELULAR
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    #telaPersonalizacao {
+        width: calc(100% - 1rem);
+
+        padding: 1.3rem;
+
+        margin-top: 100px;
+    }
+
+    #telaPersonalizacao .titulo-sessao {
+        font-size: 1.1rem;
+
+        margin-bottom: 1.3rem;
+    }
+
+    .area-personagem {
+        min-height: 300px;
+
+        padding: 1rem;
+    }
+
+    .avatar-editor {
+        width: 190px;
+        height: 240px;
+    }
+
+    .categorias-personagem {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 0.6rem;
+    }
+
+    .categoria-personagem {
+        min-height: 48px;
+
+        padding: 0.65rem 0.5rem;
+
+        font-size: 0.72rem;
+    }
+
+    .opcoes-categoria {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        padding: 0.8rem;
+
+        gap: 0.6rem;
+    }
+
+    .opcao-personagem {
+        min-height: 60px;
+
+        font-size: 0.7rem;
+    }
+
+}
