@@ -26,6 +26,7 @@ const telaRecuperacao =
     document.getElementById("btnProximaAvaliacao");
         const btnSair = document.getElementById("btnSair");
     const btnPerfil = document.getElementById("btnPerfil");
+    const telaPerfil = document.getElementById("telaPerfil");
 
     /* Guarda os dados do aluno logado (nome, turma, RM)
        para serem usados depois na tela de perfil */
@@ -520,7 +521,8 @@ function esconderTodasAsTelas() {
         telaAluno,
         telaAvaliacoes,
         telaCoordenacao,
-        telaRecuperacao
+        telaRecuperacao,
+        telaPerfil
     ].forEach((tela) => {
 
         if (tela) {
@@ -595,7 +597,52 @@ if (btnPerfil) {
     });
 
 }
+/* =========================================================
+   BOTÃO PERFIL
+   ========================================================= */
 
+if (btnPerfil) {
+
+    btnPerfil.addEventListener("click", () => {
+
+        if (!telaPerfil) {
+            return;
+        }
+
+        /* Preenche os dados do aluno */
+        const perfilNome =
+            document.getElementById("perfilNome");
+
+        const perfilTurma =
+            document.getElementById("perfilTurma");
+
+        const perfilRm =
+            document.getElementById("perfilRm");
+
+        if (perfilNome) {
+            perfilNome.innerText =
+                dadosAlunoLogado.nome || "Aluno";
+        }
+
+        if (perfilTurma) {
+            perfilTurma.innerText =
+                dadosAlunoLogado.turma || "---";
+        }
+
+        if (perfilRm) {
+            perfilRm.innerText =
+                dadosAlunoLogado.rm || "---";
+        }
+
+        /* Abre o perfil */
+        mudarTela(
+            telaAluno,
+            telaPerfil
+        );
+
+    });
+
+}
 
     /* =========================================================
        LOGIN
@@ -1172,7 +1219,7 @@ if (listaMaterias) {
                    MONTAR REGISTRO
                 ----------------------------------------- */
 
-                const registro = {
+                               const registro = {
 
                     turma: turmaAtual,
 
@@ -1180,7 +1227,9 @@ if (listaMaterias) {
 
                     desabafo: desabafo,
 
-                    materias: materiasSelecionadas
+                    materias: materiasSelecionadas,
+
+                    rm: dadosAlunoLogado.rm
 
                 };
 

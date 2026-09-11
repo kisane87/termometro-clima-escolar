@@ -846,8 +846,8 @@ header h1 span {
     left: 25px;
     z-index: 9997;
 
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
 
     display: flex;
     align-items: center;
@@ -881,7 +881,7 @@ header h1 span {
 }
 
 .avatar-placeholder {
-    font-size: 1.35rem;
+    font-size: 2.2rem;
     line-height: 1;
 }
 .btn-sair {

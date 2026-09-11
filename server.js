@@ -8,6 +8,7 @@ const { GoogleGenAI } = require("@google/genai");
 
 const User = require("./User");
 const Voto = require("./Voto");
+const Avaliacao = require("./Avaliacao");
 
 const app = express();
 const gemini = new GoogleGenAI({
@@ -73,7 +74,8 @@ app.post("/api/votos", async (req, res) => {
             humor,
             desabafo,
             turma,
-            materias
+            materias,
+            rm
         } = req.body;
 
         if (!humor || !turma) {
@@ -82,6 +84,7 @@ app.post("/api/votos", async (req, res) => {
             });
         }
 
+        /* Registro ANÔNIMO (continua exatamente como antes) */
         const novoVoto = new Voto({
             humor,
             desabafo: desabafo || "",
@@ -90,6 +93,18 @@ app.post("/api/votos", async (req, res) => {
         });
 
         await novoVoto.save();
+
+        /* Registro vinculado ao aluno (para o histórico do perfil) */
+        if (rm) {
+            const novaAvaliacao = new Avaliacao({
+                rm,
+                turma,
+                humor,
+                materias: materias || {}
+            });
+
+            await novaAvaliacao.save();
+        }
 
         res.status(201).json({
             mensagem: "Voto salvo com sucesso!"
@@ -103,40 +118,6 @@ app.post("/api/votos", async (req, res) => {
         });
     }
 });
-
-
-app.get("/api/votos", async (req, res) => {
-    try {
-        const votos = await Voto.find()
-            .sort({ data: -1 });
-
-        res.json(votos);
-
-    } catch (erro) {
-        console.error("Erro ao buscar votos:", erro);
-
-        res.status(500).json({
-            erro: "Erro interno ao buscar votos."
-        });
-    }
-});
-app.delete("/api/votos", async (req, res) => {
-    try {
-        await Voto.deleteMany({});
-
-        res.json({
-            mensagem: "Todos os votos foram apagados com sucesso!"
-        });
-
-    } catch (erro) {
-        console.error("Erro ao apagar votos:", erro);
-
-        res.status(500).json({
-            erro: "Erro interno ao apagar votos."
-        });
-    }
-});
-
 // =========================
 // CADASTRO
 // =========================
