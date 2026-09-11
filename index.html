@@ -1201,117 +1201,227 @@
             </div>
                           </section>
 
-        <!-- =================================================
-             PERFIL DO ALUNO
-        ================================================== -->
+       <!-- =================================================
+     PERSONALIZAÇÃO DO PERSONAGEM
+================================================== -->
 
-        <section
-            class="container-plataforma tela-perfil escondido"
-            id="telaPerfil"
+<section
+    class="container-plataforma tela-personalizacao escondido"
+    id="telaPersonalizacao"
+>
+
+    <div class="topo-dashboard">
+
+        <div>
+
+            <span class="badge-dashboard">
+                PERSONALIZAÇÃO
+            </span>
+
+            <h2 class="titulo-dashboard">
+                Meu Personagem
+            </h2>
+
+            <p class="descricao-secao">
+                Personalize seu personagem do seu jeito.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ÁREA DO PERSONAGEM -->
+
+    <div class="area-personagem">
+
+        <div class="avatar-editor">
+
+            <span id="avatarEditor">
+                👤
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- OPÇÕES -->
+
+    <div class="opcoes-personagem">
+
+        <button
+            type="button"
+            class="categoria-personagem"
         >
+            <span>✂️</span>
+            Cabelo
+        </button>
 
-            <div class="topo-dashboard">
+        <button
+            type="button"
+            class="categoria-personagem"
+        >
+            <span>👕</span>
+            Roupas
+        </button>
 
-                <div>
+        <button
+            type="button"
+            class="categoria-personagem"
+        >
+            <span>🧥</span>
+            Jaquetas
+        </button>
 
-                    <span class="badge-dashboard">
-                        PERFIL DO ESTUDANTE
-                    </span>
+        <button
+            type="button"
+            class="categoria-personagem"
+        >
+            <span>🕶️</span>
+            Acessórios
+        </button>
 
-                    <h2 class="titulo-dashboard">
-                        Meu Perfil
-                    </h2>
-
-                </div>
-
-            </div>
-
-
-            <!-- INFORMAÇÕES DO ALUNO -->
-
-            <div class="card-perfil">
-
-                <div class="avatar-perfil">
-                    <span id="avatarPerfil">
-                        👤
-                    </span>
-                </div>
-
-                <div class="dados-perfil">
-
-                    <h3 id="perfilNome">
-                        Aluno
-                    </h3>
-
-                    <p>
-                        Turma:
-                        <strong id="perfilTurma">---</strong>
-                    </p>
-
-                    <p>
-                        RM:
-                        <strong id="perfilRm">---</strong>
-                    </p>
-
-                </div>
-
-            </div>
+    </div>
 
 
-            <!-- HISTÓRICO -->
+    <!-- BOTÃO SALVAR -->
 
-            <div class="secao-historico">
-
-                <div class="cabecalho-secao">
-
-                    <span class="tag-secao">
-                        MEU HISTÓRICO
-                    </span>
-
-                    <h3 class="subtitulo-dashboard">
-                        Histórico de Avaliações
-                    </h3>
-
-                    <p class="descricao-secao">
-                        Confira seus registros semanais anteriores.
-                    </p>
-
-                </div>
+    <button
+        type="button"
+        class="btn-principal"
+        id="btnSalvarAvatar"
+    >
+        Salvar personagem
+    </button>
 
 
-                <div id="historicoPerfil">
+    <!-- VOLTAR -->
 
-                    <p class="sem-dados">
-                        Nenhum registro anterior encontrado.
-                    </p>
+    <button
+        type="button"
+        class="btn-voltar-perfil"
+        id="btnVoltarPersonalizacao"
+    >
+        ← Voltar para o perfil
+    </button>
 
-                </div>
-
-            </div>
-
-
-            <!-- PERSONALIZAÇÃO -->
-
-            <button
-                type="button"
-                class="btn-principal"
-                id="btnPersonalizarAvatar"
-            >
-                Personalizar personagem
-            </button>
+</section>
 
 
-            <!-- VOLTAR -->
+<!-- =================================================
+     PERFIL DO ALUNO
+================================================== -->
 
-            <button
-                type="button"
-                class="btn-voltar-perfil"
-                id="btnVoltarPerfil"
-            >
-                ← Voltar para o painel
-            </button>
+<section
+    class="container-plataforma tela-perfil escondido"
+    id="telaPerfil"
+>
 
-        </section>
+    <div class="topo-dashboard">
+
+        <div>
+
+            <span class="badge-dashboard">
+                PERFIL DO ESTUDANTE
+            </span>
+
+            <h2 class="titulo-dashboard">
+                Meu Perfil
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <!-- INFORMAÇÕES DO ALUNO -->
+
+    <div class="card-perfil">
+
+        <div class="avatar-perfil">
+
+            <span id="avatarPerfil">
+                👤
+            </span>
+
+        </div>
+
+        <div class="dados-perfil">
+
+            <h3 id="perfilNome">
+                Aluno
+            </h3>
+
+            <p>
+                Turma:
+                <strong id="perfilTurma">---</strong>
+            </p>
+
+            <p>
+                RM:
+                <strong id="perfilRm">---</strong>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- HISTÓRICO -->
+
+    <div class="secao-historico">
+
+        <div class="cabecalho-secao">
+
+            <span class="tag-secao">
+                MEU HISTÓRICO
+            </span>
+
+            <h3 class="subtitulo-dashboard">
+                Histórico de Avaliações
+            </h3>
+
+            <p class="descricao-secao">
+                Confira seus registros semanais anteriores.
+            </p>
+
+        </div>
+
+
+        <div id="historicoPerfil">
+
+            <p class="sem-dados">
+                Nenhum registro anterior encontrado.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- PERSONALIZAÇÃO -->
+
+    <button
+        type="button"
+        class="btn-principal"
+        id="btnPersonalizarAvatar"
+    >
+        Personalizar personagem
+    </button>
+
+
+    <!-- VOLTAR -->
+
+    <button
+        type="button"
+        class="btn-voltar-perfil"
+        id="btnVoltarPerfil"
+    >
+        ← Voltar para o painel
+    </button>
+
+</section>
 
     </div>
 

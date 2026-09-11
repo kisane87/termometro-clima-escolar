@@ -31,6 +31,10 @@ const telaRecuperacao =
     document.getElementById("btnVoltarPerfil");
     const btnPersonalizarAvatar =
     document.getElementById("btnPersonalizarAvatar");
+    const telaPersonalizacao =
+    document.getElementById("telaPersonalizacao");
+    const btnVoltarPersonalizacao =
+    document.getElementById("btnVoltarPersonalizacao");
 
     /* Guarda os dados do aluno logado (nome, turma, RM)
        para serem usados depois na tela de perfil */
@@ -526,7 +530,8 @@ function esconderTodasAsTelas() {
         telaAvaliacoes,
         telaCoordenacao,
         telaRecuperacao,
-        telaPerfil
+        telaPerfil,
+        telaPersonalizacao
     ].forEach((tela) => {
 
         if (tela) {
@@ -671,7 +676,22 @@ if (btnPersonalizarAvatar) {
 
     btnPersonalizarAvatar.addEventListener("click", () => {
 
-        alert("Personalização do personagem em breve!");
+        mudarTela(
+            telaPerfil,
+            telaPersonalizacao
+        );
+
+    });
+
+}
+if (btnVoltarPersonalizacao) {
+
+    btnVoltarPersonalizacao.addEventListener("click", () => {
+
+        mudarTela(
+            telaPersonalizacao,
+            telaPerfil
+        );
 
     });
 
