@@ -3641,3 +3641,16 @@ bottom: calc(16px + env(safe-area-inset-bottom));
     }
 
 }
+/* =====================================================
+   PROTEÇÃO DAS TELAS DE PERFIL E PERSONAGEM
+   ===================================================== */
+
+#telaPersonalizacao.escondido,
+#telaPerfil.escondido {
+    display: none !important;
+}
+
+#btnPerfil.escondido,
+#btnSair.escondido {
+    display: none !important;
+}

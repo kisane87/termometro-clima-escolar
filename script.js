@@ -2971,9 +2971,23 @@ if (turmaCoordenacao) {
 
 esconderTodasAsTelas();
 
+/* =====================================================
+   GARANTIR QUE O LOGIN SEJA A ÚNICA TELA VISÍVEL
+   AO ABRIR O SITE
+   ===================================================== */
+
 if (telaLogin) {
     telaLogin.classList.remove("escondido");
     telaLogin.style.opacity = "1";
+}
+
+/* Personagem e perfil nunca aparecem no login */
+if (telaPersonalizacao) {
+    telaPersonalizacao.classList.add("escondido");
+}
+
+if (telaPerfil) {
+    telaPerfil.classList.add("escondido");
 }
 
 if (btnSair) {
