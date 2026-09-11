@@ -27,6 +27,10 @@ const telaRecuperacao =
         const btnSair = document.getElementById("btnSair");
     const btnPerfil = document.getElementById("btnPerfil");
     const telaPerfil = document.getElementById("telaPerfil");
+    const btnVoltarPerfil =
+    document.getElementById("btnVoltarPerfil");
+    const btnPersonalizarAvatar =
+    document.getElementById("btnPersonalizarAvatar");
 
     /* Guarda os dados do aluno logado (nome, turma, RM)
        para serem usados depois na tela de perfil */
@@ -643,7 +647,35 @@ if (btnPerfil) {
     });
 
 }
+/* =========================================================
+   BOTÃO VOLTAR DO PERFIL
+   ========================================================= */
 
+if (btnVoltarPerfil) {
+
+    btnVoltarPerfil.addEventListener("click", () => {
+
+        mudarTela(
+            telaPerfil,
+            telaAluno
+        );
+
+    });
+
+}
+/* =========================================================
+   BOTÃO PERSONALIZAR PERSONAGEM
+   ========================================================= */
+
+if (btnPersonalizarAvatar) {
+
+    btnPersonalizarAvatar.addEventListener("click", () => {
+
+        alert("Personalização do personagem em breve!");
+
+    });
+
+}
     /* =========================================================
        LOGIN
        ========================================================= */
