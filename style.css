@@ -799,7 +799,43 @@ header h1 span {
 /* =========================================================
    BOTÃO SAIR
    ========================================================= */
+/* =========================================================
+   BOTÃO SAIR GLOBAL
+   ========================================================= */
 
+.btn-sair-global {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 9997;
+
+    background: transparent;
+    border: 1px solid #3e3e4a;
+    color: var(--texto-principal);
+
+    padding: 0.55rem 1.2rem;
+    border-radius: 8px;
+
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.btn-sair-global:hover {
+    background: var(--vermelho);
+    border-color: var(--vermelho);
+    transform: translateY(-1px);
+}
+
+.btn-sair-global:active {
+    transform: scale(0.97);
+}
 .btn-sair {
     background: transparent;
 
@@ -2041,10 +2077,9 @@ header h1 span {
     cursor: pointer;
 
     transition:
-        background 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.2s ease;
-
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
 }
 
 

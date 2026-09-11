@@ -24,6 +24,7 @@ const telaRecuperacao =
     const btnLimparDados = document.getElementById("btnLimparDados");
     const btnProximaAvaliacao =
     document.getElementById("btnProximaAvaliacao");
+    const btnSair = document.getElementById("btnSair");
 
     const linkIrParaCadastro =
         document.getElementById("linkIrParaCadastro");
@@ -436,24 +437,47 @@ if (linkVoltarLoginRecuperacao) {
 
     function mudarTela(telaAntiga, telaNova) {
 
-        if (telaAntiga) {
-            telaAntiga.classList.add("escondido");
-        }
-
-        if (telaNova) {
-
-            telaNova.classList.remove("escondido");
-
-            telaNova.style.animationDelay = "0s";
-            telaNova.style.opacity = "1";
-
-        }
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
+    if (telaAntiga) {
+        telaAntiga.classList.add("escondido");
     }
+
+    if (telaNova) {
+
+        telaNova.classList.remove("escondido");
+
+        telaNova.style.animationDelay = "0s";
+        telaNova.style.opacity = "1";
+
+    }
+
+    /* =====================================================
+       BOTÃO SAIR GLOBAL
+       ===================================================== */
+
+    if (btnSair) {
+
+        const mostrarBotaoSair =
+            telaNova === telaAluno ||
+            telaNova === telaAvaliacoes ||
+            telaNova === telaCoordenacao;
+
+        if (mostrarBotaoSair) {
+
+            btnSair.classList.remove("escondido");
+
+        } else {
+
+            btnSair.classList.add("escondido");
+
+        }
+
+    }
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
     /* =========================================================
    ESCONDER TODAS AS TELAS
    ========================================================= */
@@ -472,6 +496,67 @@ function esconderTodasAsTelas() {
         if (tela) {
             tela.classList.add("escondido");
         }
+
+    });
+
+}
+/* =========================================================
+   BOTÃO SAIR GLOBAL
+   ========================================================= */
+
+if (btnSair) {
+
+    btnSair.addEventListener("click", () => {
+
+        /* Esconde todas as telas */
+        esconderTodasAsTelas();
+
+        /* Mostra o login */
+        if (telaLogin) {
+            telaLogin.classList.remove("escondido");
+            telaLogin.style.opacity = "1";
+        }
+
+        /* Esconde o botão Sair */
+        btnSair.classList.add("escondido");
+
+        /* Limpa o estado do humor */
+        humorSelecionado = null;
+        turmaAtual = "";
+        avaliacoesMaterias = {};
+
+        /* Remove seleção dos humores */
+        document
+            .querySelectorAll(".btn-humor.selecionado")
+            .forEach((botao) => {
+                botao.classList.remove("selecionado");
+            });
+
+        /* Remove seleção das matérias */
+        document
+            .querySelectorAll(".opcao-materia.selecionado")
+            .forEach((botao) => {
+                botao.classList.remove("selecionado");
+            });
+
+        /* Remove a cor do fundo */
+        document.body.classList.remove(
+            "bg-produtivo",
+            "bg-tranquilo",
+            "bg-pouco",
+            "bg-muito"
+        );
+
+        /* Limpa o campo de desabafo */
+        if (txtDesabafo) {
+            txtDesabafo.value = "";
+        }
+
+        /* Volta para o topo */
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
 
     });
 
