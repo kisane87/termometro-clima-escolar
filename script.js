@@ -25,6 +25,7 @@ const telaRecuperacao =
     const btnProximaAvaliacao =
     document.getElementById("btnProximaAvaliacao");
     const btnSair = document.getElementById("btnSair");
+    const btnPerfil = document.getElementById("btnPerfil");
 
     const linkIrParaCadastro =
         document.getElementById("linkIrParaCadastro");
@@ -472,6 +473,27 @@ if (linkVoltarLoginRecuperacao) {
         }
 
     }
+    /* =====================================================
+   BOTÃO PERFIL DO ALUNO
+   ===================================================== */
+
+if (btnPerfil) {
+
+    const mostrarBotaoPerfil =
+        telaNova === telaAluno ||
+        telaNova === telaAvaliacoes;
+
+    if (mostrarBotaoPerfil) {
+
+        btnPerfil.classList.remove("escondido");
+
+    } else {
+
+        btnPerfil.classList.add("escondido");
+
+    }
+
+}
 
     window.scrollTo({
         top: 0,
@@ -519,6 +541,10 @@ if (btnSair) {
 
         /* Esconde o botão Sair */
         btnSair.classList.add("escondido");
+        /* Esconde o botão de perfil */
+if (btnPerfil) {
+    btnPerfil.classList.add("escondido");
+}
 
         /* Limpa o estado do humor */
         humorSelecionado = null;

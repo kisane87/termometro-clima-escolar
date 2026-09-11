@@ -836,6 +836,54 @@ header h1 span {
 .btn-sair-global:active {
     transform: scale(0.97);
 }
+/* =========================================================
+   BOTÃO PERFIL GLOBAL
+   ========================================================= */
+
+.btn-perfil-global {
+    position: fixed;
+    top: 20px;
+    left: 25px;
+    z-index: 9997;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    background: rgba(30, 30, 36, 0.94);
+    border: 2px solid var(--roxo-gamma);
+    border-radius: 50%;
+
+    color: var(--texto-principal);
+    cursor: pointer;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.btn-perfil-global:hover {
+    transform: translateY(-2px) scale(1.04);
+    border-color: var(--roxo-hover);
+    box-shadow: 0 10px 30px rgba(130, 87, 229, 0.3);
+}
+
+.btn-perfil-global:active {
+    transform: scale(0.97);
+}
+
+.avatar-placeholder {
+    font-size: 1.35rem;
+    line-height: 1;
+}
 .btn-sair {
     background: transparent;
 
