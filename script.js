@@ -709,25 +709,36 @@ const avatarRosto =
 const avatarCabelo =
     document.getElementById("avatarCabelo");
 
-const rostoMasculino = `M120 35
+
+const rostoMasculino = `
+M120 35
 C82 35 63 64 63 105
 C63 145 87 166 120 166
 C153 166 177 145 177 105
-C177 64 158 35 120 35Z`;
+C177 64 158 35 120 35Z
+`;
 
-const rostoFeminino = `M120 34
+
+const rostoFeminino = `
+M120 34
 C84 34 66 62 66 103
 C66 142 89 165 120 165
 C151 165 174 142 174 103
-C174 62 156 34 120 34Z`;
+C174 62 156 34 120 34Z
+`;
 
-const cabeloMasculino = `M62 95
+
+const cabeloMasculino = `
+M62 95
 C57 53 82 25 120 25
 C158 25 183 53 178 95
 C166 77 150 70 130 69
-C105 67 84 77 62 95Z`;
+C105 67 84 77 62 95Z
+`;
 
-const cabeloFeminino = `M57 115
+
+const cabeloFeminino = `
+M57 115
 C49 65 75 24 120 24
 C165 24 191 65 183 115
 C180 136 172 153 162 166
@@ -735,7 +746,13 @@ C158 143 154 121 154 101
 C154 80 140 67 120 67
 C100 67 86 80 86 101
 C86 121 82 143 78 166
-C68 153 60 136 57 115Z`;
+C68 153 60 136 57 115Z
+`;
+
+
+/* =========================================================
+   MUDAR MASCULINO / FEMININO
+   ========================================================= */
 
 botoesTipoPersonagem.forEach((botao) => {
 
@@ -744,37 +761,197 @@ botoesTipoPersonagem.forEach((botao) => {
         const tipo =
             botao.getAttribute("data-personagem");
 
+
+        /* Marca o botão selecionado */
+
         botoesTipoPersonagem.forEach((b) => {
+
             b.classList.remove("selecionado");
+
         });
 
         botao.classList.add("selecionado");
 
+
+        /* Muda o personagem */
+
         if (tipo === "feminino") {
 
-            avatarRosto?.setAttribute(
-                "d",
-                rostoFeminino
-            );
+            if (avatarRosto) {
+                avatarRosto.setAttribute(
+                    "d",
+                    rostoFeminino
+                );
+            }
 
-            avatarCabelo?.setAttribute(
-                "d",
-                cabeloFeminino
-            );
+            if (avatarCabelo) {
+                avatarCabelo.setAttribute(
+                    "d",
+                    cabeloFeminino
+                );
+            }
 
         } else {
 
-            avatarRosto?.setAttribute(
-                "d",
-                rostoMasculino
-            );
+            if (avatarRosto) {
+                avatarRosto.setAttribute(
+                    "d",
+                    rostoMasculino
+                );
+            }
 
-            avatarCabelo?.setAttribute(
-                "d",
-                cabeloMasculino
+            if (avatarCabelo) {
+                avatarCabelo.setAttribute(
+                    "d",
+                    cabeloMasculino
+                );
+            }
+
+        }
+
+    });
+
+});
+
+
+/* =========================================================
+   PERSONALIZAÇÃO — BOTÃO CABELO
+   ========================================================= */
+
+const btnCategoriaCabelo =
+    document.getElementById("btnCategoriaCabelo");
+
+const opcoesCabelo =
+    document.getElementById("opcoesCabelo");
+
+
+if (btnCategoriaCabelo && opcoesCabelo) {
+
+    btnCategoriaCabelo.addEventListener(
+        "click",
+        () => {
+
+            opcoesCabelo.classList.toggle(
+                "escondido"
             );
 
         }
+    );
+
+}
+
+
+/* =========================================================
+   PERSONALIZAÇÃO — OPÇÕES DE CABELO
+   ========================================================= */
+
+const botoesCabelo =
+    document.querySelectorAll("[data-cabelo]");
+
+
+botoesCabelo.forEach((botao) => {
+
+    botao.addEventListener("click", () => {
+
+        const tipoCabelo =
+            botao.getAttribute("data-cabelo");
+
+
+        if (!avatarCabelo) {
+            return;
+        }
+
+
+        /* Cabelo padrão */
+
+        if (tipoCabelo === "padrao") {
+
+    const tipoSelecionado =
+        document
+            .querySelector(".tipo-personagem.selecionado")
+            ?.getAttribute("data-personagem");
+
+    avatarCabelo.setAttribute(
+        "d",
+        tipoSelecionado === "feminino"
+            ? cabeloFeminino
+            : cabeloMasculino
+    );
+
+}
+
+        /* Cabelo curto */
+
+        if (tipoCabelo === "curto") {
+
+            avatarCabelo.setAttribute(
+                "d",
+                `
+                M64 91
+                C63 55 85 30 120 30
+                C155 30 177 55 176 91
+                C160 72 145 67 120 67
+                C95 67 80 72 64 91Z
+                `
+            );
+
+        }
+
+
+        /* Topete */
+
+        if (tipoCabelo === "topete") {
+
+            avatarCabelo.setAttribute(
+                "d",
+                `
+                M62 91
+                C58 65 72 43 92 38
+                C91 25 103 15 120 25
+                C137 10 158 20 155 37
+                C174 43 182 63 178 91
+                C160 72 145 67 120 67
+                C95 67 80 72 62 91Z
+                `
+            );
+
+        }
+
+
+        /* Cacheado */
+
+        if (tipoCabelo === "cacheado") {
+
+            avatarCabelo.setAttribute(
+                "d",
+                `
+                M58 103
+                C48 82 55 56 73 43
+                C72 27 89 18 102 28
+                C111 13 130 15 137 29
+                C151 17 170 27 168 43
+                C187 55 192 82 182 103
+                C170 84 151 75 120 75
+                C89 75 70 84 58 103Z
+                `
+            );
+
+        }
+
+
+        /* Marca cabelo escolhido */
+
+        botoesCabelo.forEach((b) => {
+
+            b.classList.remove(
+                "selecionado"
+            );
+
+        });
+
+        botao.classList.add(
+            "selecionado"
+        );
 
     });
 
