@@ -696,6 +696,25 @@ if (btnVoltarPersonalizacao) {
     });
 
 }
+/* =========================================================
+   PERSONALIZAÇÃO — CABELO
+   ========================================================= */
+
+const btnCategoriaCabelo =
+    document.getElementById("btnCategoriaCabelo");
+
+const opcoesCabelo =
+    document.getElementById("opcoesCabelo");
+
+if (btnCategoriaCabelo && opcoesCabelo) {
+
+    btnCategoriaCabelo.addEventListener("click", () => {
+
+        opcoesCabelo.classList.toggle("escondido");
+
+    });
+
+}
     /* =========================================================
        LOGIN
        ========================================================= */
