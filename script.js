@@ -24,8 +24,16 @@ const telaRecuperacao =
     const btnLimparDados = document.getElementById("btnLimparDados");
     const btnProximaAvaliacao =
     document.getElementById("btnProximaAvaliacao");
-    const btnSair = document.getElementById("btnSair");
+        const btnSair = document.getElementById("btnSair");
     const btnPerfil = document.getElementById("btnPerfil");
+
+    /* Guarda os dados do aluno logado (nome, turma, RM)
+       para serem usados depois na tela de perfil */
+    let dadosAlunoLogado = {
+        nome: null,
+        rm: null,
+        turma: null
+    };
 
     const linkIrParaCadastro =
         document.getElementById("linkIrParaCadastro");
@@ -646,8 +654,15 @@ if (formLogin) {
                 return;
             }
 
-            msgErroLogin.classList.add("escondido");
+                        msgErroLogin.classList.add("escondido");
             turmaAtual = dados.usuario.turma;
+
+            /* Salva os dados do aluno para uso na tela de perfil */
+            dadosAlunoLogado = {
+                nome: dados.usuario.nome,
+                rm: dados.usuario.rm,
+                turma: dados.usuario.turma
+            };
 
             console.log(
                 "Login realizado:",
