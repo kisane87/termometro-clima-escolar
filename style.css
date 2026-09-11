@@ -3563,3 +3563,77 @@ bottom: calc(16px + env(safe-area-inset-bottom));
     }
 
 }
+/* =========================================================
+   TIPO DO PERSONAGEM
+   ========================================================= */
+
+.seletor-personagem {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin: 1.5rem auto;
+}
+
+.tipo-personagem {
+    min-width: 150px;
+    padding: 0.9rem 1.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--borda-input);
+    border-radius: 12px;
+
+    color: var(--texto-secundario);
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.tipo-personagem:hover {
+    border-color: var(--roxo-gamma);
+    color: var(--texto-principal);
+    transform: translateY(-1px);
+}
+
+.tipo-personagem.selecionado {
+    background: rgba(130, 87, 229, 0.14);
+    border-color: var(--roxo-gamma);
+    color: var(--texto-principal);
+}
+
+.tipo-personagem:first-child {
+    font-size: 1.6rem;
+}
+
+.tipo-personagem:last-child {
+    font-size: 1.6rem;
+}
+
+.tipo-personagem span {
+    font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+
+    .seletor-personagem {
+        gap: 0.5rem;
+    }
+
+    .tipo-personagem {
+        min-width: 0;
+        flex: 1;
+    }
+
+}

@@ -697,24 +697,88 @@ if (btnVoltarPersonalizacao) {
 
 }
 /* =========================================================
-   PERSONALIZAÇÃO — CABELO
+   PERSONALIZAÇÃO — TIPO DO PERSONAGEM
    ========================================================= */
 
-const btnCategoriaCabelo =
-    document.getElementById("btnCategoriaCabelo");
+const botoesTipoPersonagem =
+    document.querySelectorAll(".tipo-personagem");
 
-const opcoesCabelo =
-    document.getElementById("opcoesCabelo");
+const avatarRosto =
+    document.getElementById("avatarRosto");
 
-if (btnCategoriaCabelo && opcoesCabelo) {
+const avatarCabelo =
+    document.getElementById("avatarCabelo");
 
-    btnCategoriaCabelo.addEventListener("click", () => {
+const rostoMasculino = `M120 35
+C82 35 63 64 63 105
+C63 145 87 166 120 166
+C153 166 177 145 177 105
+C177 64 158 35 120 35Z`;
 
-        opcoesCabelo.classList.toggle("escondido");
+const rostoFeminino = `M120 34
+C84 34 66 62 66 103
+C66 142 89 165 120 165
+C151 165 174 142 174 103
+C174 62 156 34 120 34Z`;
+
+const cabeloMasculino = `M62 95
+C57 53 82 25 120 25
+C158 25 183 53 178 95
+C166 77 150 70 130 69
+C105 67 84 77 62 95Z`;
+
+const cabeloFeminino = `M57 115
+C49 65 75 24 120 24
+C165 24 191 65 183 115
+C180 136 172 153 162 166
+C158 143 154 121 154 101
+C154 80 140 67 120 67
+C100 67 86 80 86 101
+C86 121 82 143 78 166
+C68 153 60 136 57 115Z`;
+
+botoesTipoPersonagem.forEach((botao) => {
+
+    botao.addEventListener("click", () => {
+
+        const tipo =
+            botao.getAttribute("data-personagem");
+
+        botoesTipoPersonagem.forEach((b) => {
+            b.classList.remove("selecionado");
+        });
+
+        botao.classList.add("selecionado");
+
+        if (tipo === "feminino") {
+
+            avatarRosto?.setAttribute(
+                "d",
+                rostoFeminino
+            );
+
+            avatarCabelo?.setAttribute(
+                "d",
+                cabeloFeminino
+            );
+
+        } else {
+
+            avatarRosto?.setAttribute(
+                "d",
+                rostoMasculino
+            );
+
+            avatarCabelo?.setAttribute(
+                "d",
+                cabeloMasculino
+            );
+
+        }
 
     });
 
-}
+});
     /* =========================================================
        LOGIN
        ========================================================= */
