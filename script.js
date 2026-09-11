@@ -2705,7 +2705,24 @@ if (turmaCoordenacao) {
     );
 
 }
+/* =========================================================
+   TELA INICIAL
+   ========================================================= */
 
+esconderTodasAsTelas();
+
+if (telaLogin) {
+    telaLogin.classList.remove("escondido");
+    telaLogin.style.opacity = "1";
+}
+
+if (btnSair) {
+    btnSair.classList.add("escondido");
+}
+
+if (btnPerfil) {
+    btnPerfil.classList.add("escondido");
+}
 atualizarDashboard();
 
 });
