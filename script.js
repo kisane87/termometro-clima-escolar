@@ -581,8 +581,9 @@ if (formLogin) {
 
         const senhaDigitada =
             document.getElementById("senha").value;
-        const turmaDigitada =
+       const turmaDigitada =
     document.getElementById("turmaLogin").value;
+    
 
         if (!usuarioDigitado || !senhaDigitada) {
 
@@ -697,6 +698,17 @@ if (formLogin) {
 
         const turmaDigitada =
             document.getElementById("turmaCadastro").value;
+            const aceiteTermos =
+    document.getElementById("aceiteTermos");
+
+if (!aceiteTermos || !aceiteTermos.checked) {
+
+    alert(
+        "Você precisa aceitar os Termos de Uso e a Política de Privacidade antes de concluir o cadastro."
+    );
+
+    return;
+}
 
 
         if (
@@ -2579,5 +2591,106 @@ if (turmaCoordenacao) {
 if (btnSair) {
     btnSair.classList.add("escondido");
 }
+/* =========================================================
+   TERMOS DE USO E POLÍTICA DE PRIVACIDADE
+   ========================================================= */
 
+const abrirTermos =
+    document.getElementById("abrirTermos");
+
+const modalTermos =
+    document.getElementById("modalTermos");
+
+const fecharTermos =
+    document.getElementById("fecharTermos");
+const entendiTermos =
+    document.getElementById("entendiTermos");
+
+
+/* =========================================================
+   ABRIR MODAL DOS TERMOS
+   ========================================================= */
+
+if (abrirTermos && modalTermos) {
+
+    abrirTermos.addEventListener(
+        "click",
+        (evento) => {
+
+            evento.preventDefault();
+
+            modalTermos.classList.remove(
+                "escondido"
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   FECHAR MODAL PELO X
+   ========================================================= */
+
+if (fecharTermos && modalTermos) {
+
+    fecharTermos.addEventListener(
+        "click",
+        () => {
+
+            modalTermos.classList.add(
+                "escondido"
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   FECHAR MODAL PELO BOTÃO "ENTENDI"
+   ========================================================= */
+
+if (entendiTermos && modalTermos) {
+
+    entendiTermos.addEventListener(
+        "click",
+        () => {
+
+            modalTermos.classList.add(
+                "escondido"
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   FECHAR MODAL CLICANDO FORA
+   ========================================================= */
+
+if (modalTermos) {
+
+    modalTermos.addEventListener(
+        "click",
+        (evento) => {
+
+            if (
+                evento.target === modalTermos
+            ) {
+
+                modalTermos.classList.add(
+                    "escondido"
+                );
+
+            }
+
+        }
+    );
+
+}
 });
